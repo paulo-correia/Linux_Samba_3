@@ -16,18 +16,18 @@ Criar um arquivo **/etc/samba/smb.conf** com o seguinte conteúdo:
 [global]
 	workgroup = GRUPO
 ```
-Onde o **GRUPO** é o nome do 
+Onde o **GRUPO** é o nome do Compartilhamento / Grupo de Trabalho 
 
 Testar as configurações com o comando:
 
 `testparm`
 
 Reiniciar o Samba com o comando:
+
 `service smbd restart`
 ## Compartilhamentos
 ### Público
-No **/etc/samba/smb.conf** Adicionar dentro do **[global]**:
-```security = share```
+
 Criar abaixo do **[global]**:
 ``` 
 [compartilhamento]
@@ -42,13 +42,14 @@ Criar abaixo do **[global]**:
 ```
 
 Testar as configurações com o comando:
+
 `testparm`
 
 Reiniciar o Samba com o comando:
+
 `service smbd restart`
 
 ### Home do Usuário (privado)
-**Não** precisa inserir o **security** no **/etc/samba/smb.conf**
 
 Criar abaixo do **[global]** e antes de qualquer compartilhamento:
 ```
@@ -63,10 +64,13 @@ Criar abaixo do **[global]** e antes de qualquer compartilhamento:
 ```
 
 Testar as configurações com o comando:
+
 `testparm`
 
 Reiniciar o Samba com o comando:
+
 `service smbd restart`
+
 #### Observações
 Os arquivos vão ficar na pasta /home/nome_do_usuario
 
@@ -79,17 +83,21 @@ Criar abaixo do **[global]**:
 ```
 
 Testar as configurações com o comando:
+
 `testparm`
 
 Reiniciar o Samba com o comando:
+
 `service smbd restart`
 
 ## Criação de Usuários
 Adicionar no Linux um usuário com o comando:
 Para poder usar a Home do usuário:
+
 `adduser usuario`
 
 Para poder usar o Compartilhamento Privado:
+
 `adduser --no-create-home --disabled-password --disabled-login usuario`
 
 No Debian será solicitada a senha
@@ -97,20 +105,25 @@ No Debian será solicitada a senha
 No CentOS é preciso usar como **root** o comando **passwd usuario** e aí será solicitada a senha
 
 Adicionar usuário no Samba com o comando:
+
 `smbpasswd -a usuario`
 
 Obs: A senha do samba pode ou **não** ser a mesma do usuário do Linux
 
 ## Comandos Úteis
 Listar usuários do Samba (feito no servidor onde o samba está instalado)
+
 `pdbedit -L -v`
 
 Testar conexão em um compartilhamento (servidor ou estação) 
+
 `smbclient //servidor/compartilhamento --user=usuário`
 
 Listar compartilhamentos disponíveis para um usuário (servidor ou estação)
+
 `smbclient -L //servidor --user=usuário`
 
 Montar compatilhamento (feito na estação)
+
 `mount -t cifs //servidor/compartilhamento /diretorio/pasta -o rw,noperm,uid=usuário,gid=grupo,username=usuário,password=senha_samba
 `
