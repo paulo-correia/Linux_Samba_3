@@ -19,6 +19,7 @@ Criar um arquivo **/etc/samba/smb.conf** com o seguinte conteúdo:
 Onde o **GRUPO** é o nome do 
 
 Testar as configurações com o comando:
+
 `testparm`
 
 Reiniciar o Samba com o comando:
