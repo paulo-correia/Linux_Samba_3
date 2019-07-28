@@ -12,7 +12,8 @@ Caso já exista um **/etc/samba/smb.conf** mover ele como **root** com o comando
 Criar um arquivo **/etc/samba/smb.conf** com o seguinte conteúdo:
 ```
 [global]
-	workgroup = GRUPO```
+	workgroup = GRUPO
+```
 Onde o **GRUPO** é o nome do 
 Testar as configurações com o comando:
 `testparm`
@@ -32,7 +33,8 @@ Criar abaixo do **[global]**:
           writable = yes
           guest only = yes
           guest account = nobody
-          browsable = yes```
+          browsable = yes
+```
 Testar as configurações com o comando:
 `testparm`
 Reiniciar o Samba com o comando:
@@ -49,7 +51,8 @@ Criar abaixo do **[global]** e antes de qualquer compartilhamento:
        writable = yes
        create mask = 0700
        directory mask = 0700
-       valid users = %S```
+       valid users = %S
+```
 Testar as configurações com o comando:
 `testparm`
 Reiniciar o Samba com o comando:
@@ -62,7 +65,8 @@ Criar abaixo do **[global]**:
 ```
 [compartilhamento]
 	path = \caminho\do\compartilhamento
-    writable = yes```
+    writable = yes
+```
 Testar as configurações com o comando:
 `testparm`
 Reiniciar o Samba com o comando:
@@ -84,10 +88,13 @@ Adicionar usuário no Samba com o comando:
 ## Comandos Úteis
 Listar usuários do Samba (feito no servidor onde o samba está instalado)
 `pdbedit -L -v`
+
 Testar conexão em um compartilhamento (servidor ou estação) 
 `smbclient //servidor/compartilhamento --user=usuário`
+
 Listar compartilhamentos disponíveis para um usuário (servidor ou estação)
 `smbclient -L //servidor --user=usuário`
+
 Montar compatilhamento (feito na estação)
 `mount -t cifs //servidor/compartilhamento /diretorio/pasta -o rw,noperm,uid=usuário,gid=grupo,username=usuário_samba,password=senha_samba
 `
