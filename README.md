@@ -94,6 +94,7 @@ Reiniciar o Samba com o comando:
 
 ## Criação de Usuários
 Adicionar no Linux um usuário com o comando:
+
 Para poder usar a Home do usuário:
 
 `adduser usuario`
