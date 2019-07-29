@@ -123,7 +123,13 @@ Listar compartilhamentos disponíveis para um usuário (servidor ou estação)
 
 `smbclient -L //servidor --user=usuário`
 
-Montar compatilhamento (feito na estação)
+Montar compatilhamento manualmente (feito na estação)
 
 `mount -t cifs //servidor/compartilhamento /diretorio/pasta -o rw,noperm,uid=usuário,gid=grupo,username=usuário,password=senha_samba
 `
+
+Montar compatilhamento automaticamente (feito na{s} estação{ôes})
+Na estação como **root** edite **/etc/fstab** e insira no final do arquivo uma linha
+
+`//servidor/compartilhamento /diretorio/pasta	cifs	user=usuário,pass=senha_samba,uid=usuário,gid=grupo	0	0`
+
