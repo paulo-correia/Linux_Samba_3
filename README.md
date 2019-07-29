@@ -1,3 +1,5 @@
+![](https://github.com/paulo-correia/Linux_Samba_3/blob/master/samba_logo.png)
+
 # Samba 3
 
 ## Instalação
