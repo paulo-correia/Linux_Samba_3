@@ -93,13 +93,13 @@ Reiniciar o Samba com o comando:
 `service smbd restart`
 
 ## Criação de Usuários
-Adicionar no Linux um usuário com o comando:
+Adicionar no Linux um usuário
 
-Para poder usar a Home do usuário:
+Para poder usar a Home do usuário, usando o comando:
 
 `adduser usuario`
 
-Para poder usar o Compartilhamento Privado:
+Para poder usar o Compartilhamento Privado, usando o comando:
 
 `adduser --no-create-home --disabled-password --disabled-login usuario`
 
